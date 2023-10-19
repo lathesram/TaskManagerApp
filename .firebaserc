@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "task-management-api-23386": {
+      "hosting": {
+        "TaskManagerApp": [
+          "task-management-api-23386"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "task-management-api-23386"
+  }
+}
