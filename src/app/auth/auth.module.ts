@@ -8,14 +8,14 @@ import {MaterialModule} from "../material/material.module";
 
 @NgModule({
     declarations: [
-        SignInComponent,
-        LoginInComponent
+      LoginInComponent,
+      SignInComponent
     ],
-    imports: [
-        CommonModule,
-        AuthRoutingModule,
-        MaterialModule
-    ]
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    MaterialModule,
+  ]
 })
 export class AuthModule {
 }

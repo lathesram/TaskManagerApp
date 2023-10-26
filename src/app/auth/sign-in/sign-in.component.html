@@ -1,26 +1,27 @@
 <div class="container min-vw-100 min-vh-100">
-    <div class="row vh-100 bg-image">
-        <div class="login-container">
-            <div class="login-container__box">
-                <!--Header block-->
-                <div class="login-container__header-block-container">
-                    <div class="login-container__header-block">
-                        <div class="col login-container__header-text">
-                            Sign In
-                        </div>
-
-                        <div class="col">
-                            <button mat-icon-button>
-                              <mat-icon></mat-icon>
-                            </button>
-                            <button></button>
-                            <button></button>
-                        </div>
-                    </div>
-                </div>
-
-
+  <div class="row vh-100 bg-image">
+    <div class="login-container">
+      <div class="login-container__box">
+        <!--Header block-->
+        <div class="login-container__header-block-container">
+          <div class="login-container__header-block">
+            <div class="col login-container__header-text">
+              Sign In
             </div>
+          </div>
         </div>
+        <!--Content-->
+        <div class="login-container__content">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Email" required type="email">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Password" required type="password">
+          </mat-form-field>
+          <button class="w-100" color="primary" mat-flat-button>Sign Up</button>
+        </div>
+
+      </div>
     </div>
+  </div>
 </div>
