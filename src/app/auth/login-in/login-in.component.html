@@ -1,1 +1,32 @@
-<p>login-in works!</p>
+<div class="container min-vw-100 min-vh-100">
+  <div class="row vh-100 bg-image">
+    <div class="login-container">
+      <div class="login-container__box">
+        <!--Header block-->
+        <div class="login-container__header-block-container">
+          <div class="login-container__header-block">
+            <div class="col login-container__header-text">
+              Login In
+            </div>
+          </div>
+        </div>
+        <!--Content-->
+        <div class="login-container__content">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Email" required type="email">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Password" required type="password">
+          </mat-form-field>
+          <mat-slide-toggle class="mb-4">Remember me</mat-slide-toggle>
+          <button class="w-100" color="primary" mat-flat-button>Login In</button>
+
+          <div class="mt-4 btm-text">
+            Don't have an account? <a class="sign-up" href="register">Sign Up</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
