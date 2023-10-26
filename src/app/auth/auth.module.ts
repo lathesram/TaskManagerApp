@@ -8,8 +8,7 @@ import {MaterialModule} from "../material/material.module";
 
 @NgModule({
     declarations: [
-      LoginInComponent,
-      SignInComponent
+      LoginInComponent
     ],
   imports: [
     CommonModule,
