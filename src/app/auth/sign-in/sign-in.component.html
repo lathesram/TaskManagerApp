@@ -12,13 +12,17 @@
         </div>
         <!--Content-->
         <div class="login-container__content">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Email" required type="email">
+            <input matInput placeholder="Email" formControlName="email" required type="email">
+            <mat-error> Valid email is required </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <input matInput placeholder="Password" required type="password">
+            <input matInput placeholder="Password" formControlName="email" required type="password">
+            <mat-error> Password is required </mat-error>
           </mat-form-field>
-          <button class="w-100" color="primary" mat-flat-button>Sign Up</button>
+          <button class="w-100" color="primary" type="submit" mat-flat-button>Sign Up</button>
+          </form>
         </div>
 
       </div>

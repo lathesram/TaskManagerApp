@@ -12,20 +12,23 @@
         </div>
         <!--Content-->
         <div class="login-container__content">
-          <mat-form-field appearance="outline">
-            <input matInput placeholder="Email" required type="email">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <input matInput placeholder="Password" required type="password">
-          </mat-form-field>
-          <mat-slide-toggle class="mb-4">Remember me</mat-slide-toggle>
-          <button class="w-100" color="primary" mat-flat-button>Login In</button>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Email" formControlName="email" required type="email">
+              <mat-error> Valid email is required </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Password" formControlName="password" required type="password">
+              <mat-error> Password is required </mat-error>
+            </mat-form-field>
+            <mat-slide-toggle class="mb-4" formControlName="rememberMe">Remember me</mat-slide-toggle>
+            <button class="w-100" color="primary" type="submit" mat-flat-button>Login In</button>
 
-          <div class="mt-4 btm-text">
-            Don't have an account? <a class="sign-up" href="register">Sign Up</a>
-          </div>
+            <div class="mt-4 btm-text">
+              Don't have an account? <a class="sign-up" href="register">Sign Up</a>
+            </div>
+          </form>
         </div>
-
       </div>
     </div>
   </div>
