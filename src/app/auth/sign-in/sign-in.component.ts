@@ -5,6 +5,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -18,15 +19,26 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
     MatButtonModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class SignInComponent {
+
+  constructor(private authService: AuthService) {
+  }
+
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.required]),
   })
 
   onSubmit() {
-    return
+    if (this.registerForm.valid) {
+      const email = this.registerForm.controls.email.value || '';
+      const password = this.registerForm.controls.password.value || ''
+      this.authService.signUpWithEmail(email, password)
+    }
   }
 }
