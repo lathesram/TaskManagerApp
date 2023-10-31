@@ -14,7 +14,6 @@ import {MaterialModule} from "./material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SnackBarService} from "./services/snack-bar.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {AuthService} from "./auth/services/auth.service";
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 
 @NgModule({

@@ -8,6 +8,10 @@ const routes: Routes = [
         loadChildren: () => import('./auth/auth-routing.module').then(m => m.AuthRoutingModule)
     },
     {
+        path: 'task',
+        loadChildren: () => import('./task/task-routing.module').then(m => m.TaskRoutingModule)
+    },
+    {
         path: '**',
         component: NotFoundComponent
     }
