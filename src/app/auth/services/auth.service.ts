@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
-import {SnackBarService} from "../../services/snack-bar.service";
+import {from, Observable} from "rxjs";
+import firebase from "firebase/compat/app";
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,7 @@ import {SnackBarService} from "../../services/snack-bar.service";
 export class AuthService {
 
   constructor(
-    private angularFireAuth: AngularFireAuth,
-    private snackBar: SnackBarService
-  ) {
+    private angularFireAuth: AngularFireAuth) {
   }
 
   // login
@@ -19,14 +18,7 @@ export class AuthService {
   // Sign out
 
 
-  signUpWithEmail(email: string, password: string) {
-    this.angularFireAuth.createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        // Store the use info
-        this.snackBar.openSnackbar('User Added');
-      })
-      .catch(err => {
-        this.snackBar.openSnackbar(err.message)
-      })
+  signUpWithEmail(email: string, password: string): Observable<firebase.auth.UserCredential> {
+    return from(this.angularFireAuth.createUserWithEmailAndPassword(email, password))
   }
 }

@@ -6,6 +6,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
+import {SnackBarService} from "../../services/snack-bar.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -26,7 +27,7 @@ import {AuthService} from "../services/auth.service";
 })
 export class SignInComponent {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private snackbarService: SnackBarService) {
   }
 
   registerForm = new FormGroup({
@@ -38,7 +39,13 @@ export class SignInComponent {
     if (this.registerForm.valid) {
       const email = this.registerForm.controls.email.value || '';
       const password = this.registerForm.controls.password.value || ''
-      this.authService.signUpWithEmail(email, password)
+      this.authService.signUpWithEmail(email, password).subscribe({
+        next: (res) => {
+          this.snackbarService.openSnackbar('User created');
+        }, error: (err) => {
+          this.snackbarService.openSnackbar(err.message);
+        }
+      })
     }
   }
 }
