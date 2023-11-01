@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Add new task</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="title" placeholder="Title" required />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="description" placeholder="Description" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" (click)="save()">save</button>
+  <button mat-flat-button color="warn" (click)="cancel()">cancel</button>
+</div>

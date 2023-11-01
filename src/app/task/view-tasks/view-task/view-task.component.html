@@ -7,16 +7,26 @@
       {{ task?.title }}
     </mat-panel-title>
     <mat-panel-description>
-      {{ task?.description }}
+      <div class="description w-100">
+        <div>{{ task?.description }}</div>
+        <div>
+          <button mat-icon-button color="primary" (click)="onEdit(task.id)">
+            <mat-icon>edit</mat-icon>
+          </button>   
+          <button mat-icon-button color="warn" (click)="onDelete(task.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </mat-panel-description>
   </mat-expansion-panel-header>
   <div class="row w-100">
     <div class="col-md-6">
-      <p>Due Data</p>
+      <p><b>Due Data</b></p>
       <p>{{ task?.dueDate }}</p>
     </div>
     <div class="col-md-6">
-      <p>Created At</p>
+      <p><b>Created At</b></p>
       <p>{{ task?.createdAt }}</p>
     </div>
   </div>

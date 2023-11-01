@@ -1,5 +1,13 @@
-<div class="row w-100">
-  <div class="md-8">
-    <app-add-edit-task [task]="demoTask"></app-add-edit-task>
-  </div>
+<div class="row m-5">
+  <mat-accordion>
+    <ng-container *ngFor="let task of tasks">
+      <app-view-task [task]="task"></app-view-task>
+    </ng-container>
+  </mat-accordion>
+</div>
+
+<div class="fab">
+  <button mat-fab color="warn" (click)="onAdd()">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>

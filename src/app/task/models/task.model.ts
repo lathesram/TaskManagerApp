@@ -6,4 +6,6 @@ export interface Task {
   createdAt: Date; // Timestamp when the task was created.
   createdBy: string; // User ID of the task creator.
   completed: boolean; // Indicates whether the task is completed or not.
+
+  // TODO: add lastUpdated;
 }
