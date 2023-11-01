@@ -1,1 +1,23 @@
-<p>add-edit-task works!</p>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span>
+        <mat-checkbox></mat-checkbox>
+      </span>
+      {{ task?.title }}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{ task?.description }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="row w-100">
+    <div class="col-md-6">
+      <p>Due Data</p>
+      <p>{{ task?.dueDate }}</p>
+    </div>
+    <div class="col-md-6">
+      <p>Created At</p>
+      <p>{{ task?.createdAt }}</p>
+    </div>
+  </div>
+</mat-expansion-panel>

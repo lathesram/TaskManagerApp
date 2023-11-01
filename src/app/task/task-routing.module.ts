@@ -8,7 +8,7 @@ const routes: Routes = [{
     component: ViewTasksComponent
 }]
 
-NgModule({
+@NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })

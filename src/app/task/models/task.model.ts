@@ -5,6 +5,5 @@ export interface Task {
   dueDate: Date; // Due date and time for the task.
   createdAt: Date; // Timestamp when the task was created.
   createdBy: string; // User ID of the task creator.
-  assignedTo: string; // User ID of the person assigned to the task (if applicable).
   completed: boolean; // Indicates whether the task is completed or not.
 }
