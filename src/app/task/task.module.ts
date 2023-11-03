@@ -5,10 +5,10 @@ import { MaterialModule } from '../material/material.module';
 import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 import { TaskRoutingModule } from './task-routing.module';
 import { AddEditDialogComponent } from './add-edit-dialog/add-edit-dialog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AddEditTaskComponent, ViewTasksComponent, AddEditDialogComponent],
-  imports: [MaterialModule, CommonModule, TaskRoutingModule, FormsModule],
+  imports: [MaterialModule, CommonModule, TaskRoutingModule, ReactiveFormsModule],
 })
 export class TaskModule {}

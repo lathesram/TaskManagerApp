@@ -10,10 +10,10 @@
       <div class="description w-100">
         <div>{{ task?.description }}</div>
         <div>
-          <button mat-icon-button color="primary" (click)="onEdit(task.id)">
+          <button mat-icon-button color="primary" (click)="onEdit(task?.id)">
             <mat-icon>edit</mat-icon>
           </button>   
-          <button mat-icon-button color="warn" (click)="onDelete(task.id)">
+          <button mat-icon-button color="warn" (click)="onDelete(task?.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

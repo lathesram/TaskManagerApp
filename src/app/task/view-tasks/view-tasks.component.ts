@@ -1,37 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../models/task.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditDialogComponent } from '../add-edit-dialog/add-edit-dialog.component';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-view-tasks',
   templateUrl: './view-tasks.component.html',
   styleUrls: ['./view-tasks.component.scss'],
 })
-export class ViewTasksComponent {
-  constructor(private dialog: MatDialog) {}
-  tasks: Task[] = [
-    {
-      id: '1',
-      title: 'Title',
-      description: 'Description',
-      dueDate: new Date(),
-      createdAt: new Date(),
-      createdBy: 'Lathes',
-      completed: false,
-    },
-    {
-      id: '1',
-      title: 'Title',
-      description: 'Description',
-      dueDate: new Date(),
-      createdAt: new Date(),
-      createdBy: 'Lathes',
-      completed: false,
-    },
-  ];
+export class ViewTasksComponent implements OnInit {
+  tasks: Task[] = [];
+
+  constructor(private dialog: MatDialog, private taskService: TaskService) {}
+
+  ngOnInit(): void {
+    this.taskService.getAllTasks().subscribe((tasks) => (this.tasks = tasks));
+  }
 
   onAdd() {
-    this.dialog.open(AddEditDialogComponent);
+    const dialogRef = this.dialog.open(AddEditDialogComponent);
+
+    dialogRef.afterClosed().subscribe((task: Task) => {
+      this.taskService.addTask(task);
+    });
   }
 }
