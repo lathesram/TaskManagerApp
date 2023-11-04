@@ -5,7 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 import { TaskRoutingModule } from './task-routing.module';
 import { AddEditDialogComponent } from './add-edit-dialog/add-edit-dialog.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     TaskRoutingModule,
     ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class TaskModule {}

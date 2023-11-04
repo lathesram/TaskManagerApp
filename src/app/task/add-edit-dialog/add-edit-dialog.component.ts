@@ -45,7 +45,7 @@ export class AddEditDialogComponent {
 
       const task: Task = {
         id: this.taskForm?.controls?.id?.value
-          ? Number(this.taskForm?.controls?.id?.value)
+          ? this.taskForm?.controls?.id?.value
           : undefined,
         title: this.taskForm?.controls?.title?.value,
         description: this.taskForm?.controls?.description?.value,

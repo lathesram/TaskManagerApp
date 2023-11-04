@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Task } from '../../models/task.model';
 import { AddEditDialogComponent } from '../../add-edit-dialog/add-edit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,8 +16,10 @@ import { TaskService } from '../../task.service';
   templateUrl: './view-task.component.html',
   styleUrls: ['./view-task.component.scss'],
 })
-export class AddEditTaskComponent {
+export class AddEditTaskComponent implements OnChanges {
   @Input() task: Task;
+
+  completed: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -19,7 +27,13 @@ export class AddEditTaskComponent {
     private snackBar: SnackBarService
   ) {}
 
-  onEdit(id: number) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.task.previousValue !== changes.task.currentValue) {
+      this.completed = this.task.completed;
+    }
+  }
+
+  onEdit(id: string) {
     this.taskService.getOneTask(id).subscribe({
       next: (task) => {
         if (task) {
@@ -32,7 +46,6 @@ export class AddEditTaskComponent {
               this.taskService.updateTask(task);
             }
           });
-
         } else {
           this.snackBar.openSnackbar('Something wrong!');
         }
@@ -43,14 +56,14 @@ export class AddEditTaskComponent {
     });
   }
 
-  onDelete(id: number) {
-    if(id) {
+  onDelete(id: string) {
+    if (id) {
       this.taskService.deleteTask(id);
     }
   }
 
-  onCompletedClicked(id: number, completed: boolean) {
-    if(id) {
+  onCompletedClicked(id: string, completed: boolean) {
+    if (id) {
       this.taskService.updateCompletionStatus(id, completed);
     }
   }

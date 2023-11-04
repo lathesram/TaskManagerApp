@@ -15,6 +15,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SnackBarService} from "./services/snack-bar.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -32,9 +38,15 @@ import {FIREBASE_OPTIONS} from "@angular/fire/compat";
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    provideAnalytics(() => getAnalytics()),
+    provideFunctions(() => getFunctions()),
+    provideMessaging(() => getMessaging()),
+    providePerformance(() => getPerformance()),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideStorage(() => getStorage())
   ],
-  providers: [SnackBarService, {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
+  providers: [SnackBarService, {provide: FIREBASE_OPTIONS, useValue: environment.firebase}, ScreenTrackingService,UserTrackingService
   ],
   bootstrap: [AppComponent]
 })

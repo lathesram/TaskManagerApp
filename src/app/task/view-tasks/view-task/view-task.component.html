@@ -2,7 +2,8 @@
   <mat-expansion-panel-header>
     <mat-panel-title>
       <span>
-        <mat-checkbox
+        <mat-checkbox  
+        [(ngModel)]="completed"
           (change)="onCompletedClicked(task?.id, $event.checked)"
         ></mat-checkbox>
       </span>
