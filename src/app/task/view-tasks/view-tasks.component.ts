@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../models/task.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditDialogComponent } from '../add-edit-dialog/add-edit-dialog.component';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-view-tasks',
