@@ -2,9 +2,8 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { AddEditDialogComponent } from '../../add-edit-dialog/add-edit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskService } from '../../task.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { catchError } from 'rxjs';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'app-view-task',
@@ -45,6 +44,14 @@ export class AddEditTaskComponent {
   }
 
   onDelete(id: number) {
-    this.taskService.deleteTask(id);
+    if(id) {
+      this.taskService.deleteTask(id);
+    }
+  }
+
+  onCompletedClicked(id: number, completed: boolean) {
+    if(id) {
+      this.taskService.updateCompletionStatus(id, completed);
+    }
   }
 }
