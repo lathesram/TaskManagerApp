@@ -10,31 +10,32 @@ import {
 import { Task } from './models/task.model';
 import { from } from 'rxjs';
 import { deleteDoc, getFirestore } from 'firebase/firestore';
+import { BaseApiService } from '../common/services/base.api.service';
+
+export enum TASK_API {
+  URL = '/Tasks',
+  TABLE_NAME = 'Tasks',
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskApiService {
-  constructor() {}
+  constructor(private baseApiService: BaseApiService) {}
 
   getAllData() {
-    const collectionRef = collection(getFirestore(), '/Tasks');
-    return collectionData(collectionRef, { idField: 'id' });
+    return this.baseApiService.fetchAll(TASK_API.URL);
   }
 
   addTask(task: Task) {
-    const collectionRef = collection(getFirestore(), '/Tasks');
-    return from(addDoc(collectionRef, task));
+    return this.baseApiService.post(task, TASK_API.URL);
   }
 
   updateTask(task: Task) {
-    const docInstance = doc(getFirestore(), 'Tasks', String(task.id));
-    const updateData = { ...task };
-    return from(updateDoc(docInstance, updateData));
+    return this.baseApiService.update(task, task.id, TASK_API.TABLE_NAME);
   }
 
   deleteTask(taskId: string) {
-    const docInstance = doc(getFirestore(), 'Tasks', taskId);
-    return from(deleteDoc(docInstance));
+    return this.baseApiService.delete(TASK_API.TABLE_NAME, taskId);
   }
 }
