@@ -8,7 +8,7 @@ import {
 import { Task } from '../../models/task.model';
 import { AddEditDialogComponent } from '../../add-edit-dialog/add-edit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { SnackBarService } from 'src/app/services/snack-bar.service';
+import { SnackBarService } from 'src/app/common/services/snack-bar.service';
 import { TaskService } from '../../task.service';
 
 @Component({

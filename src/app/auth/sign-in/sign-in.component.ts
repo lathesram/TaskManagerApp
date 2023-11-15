@@ -6,7 +6,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
-import {SnackBarService} from "../../services/snack-bar.service";
+import {SnackBarService} from "../../common/services/snack-bar.service";
 
 @Component({
   selector: 'app-sign-in',

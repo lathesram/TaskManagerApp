@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Task } from './models/task.model';
 import { Observable, Subject, of } from 'rxjs';
 import { TaskApiService } from './task.api.service';
-import { SnackBarService } from '../services/snack-bar.service';
+import { SnackBarService } from '../common/services/snack-bar.service';
 import { Timestamp } from 'firebase/firestore';
 
 @Injectable({

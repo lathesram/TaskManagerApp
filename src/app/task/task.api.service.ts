@@ -15,7 +15,7 @@ import { deleteDoc, getFirestore } from 'firebase/firestore';
   providedIn: 'root',
 })
 export class TaskApiService {
-  constructor(private firestore: Firestore) {}
+  constructor() {}
 
   getAllData() {
     const collectionRef = collection(getFirestore(), '/Tasks');
